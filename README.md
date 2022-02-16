@@ -9,6 +9,7 @@ Unpack data to: BrainTumorDataSet
 
 To build the model: model_tumor.ipynb
 
-To run project: streamlit run model.py
+To run project: streamlit run streamlit_app.py
 
+Prec: 97%
 
