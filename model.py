@@ -15,7 +15,7 @@ st.caption('*Brain tumor* prediction')
 
 st.sidebar.title('Welcome')
 class_names= ['Tumor', 'Healhty']
-file = st.sidebar.file_uploader("Choose a photo ", type=["png", "jpg", "jpeg", "tif"], accept_multiple_files=False)
+file = st.sidebar.file_uploader("Choose a photo ", type=["jpg", "tif"], accept_multiple_files=False)
 if file is not None:
     image = Image.open(file)
     try:
@@ -24,7 +24,7 @@ if file is not None:
       "Can''t read model..."
     else:
       img_array = np.array(image)
-      img = tf.image.resize(img_array, size=(244,244))
+      img = tf.image.resize(img_array, size=(512,512))
       img = tf.expand_dims(img, axis=0)
       pred = new_model.predict(img)
       st.image(
