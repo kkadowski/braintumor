@@ -27,6 +27,8 @@ if file is not None:
       img = tf.image.resize(img_array, size=(512,512))
       img = tf.expand_dims(img, axis=0)
       pred = new_model.predict(img)
+      st.text_area(f"Classification: {class_names[np.argmax(pred)]}")
+
       st.image(
         image,
         caption=f"Photo calssification: {class_names[np.argmax(pred)]}",
